@@ -38,14 +38,14 @@ export default function Help() {
                         Visa, Mastercard, Diners Club, Discover, American Express, Visa Electron, Maestro
                     </p>
                     <p className="text-[12px] mt-4 xl:text-[16px] lg:text-[14px]">
-                        If you enter your PAN information at checkout, you'll be able to pay for your order with PayTM or a local credit or debit card.
+                        If you enter your PAN information at checkout, youll be able to pay for your order with PayTM or a local credit or debit card.
                     </p>
                     <p className="text-[12px] mt-4 xl:text-[16px] lg:text-[14px]">Apple Pay</p>
                     <p className="text-[12px] mt-4 font-medium underline xl:text-[16px] lg:text-[14px]">
                         Nike Members
                     </p>
                     <p className="text-[12px] xl:text-[16px] lg:text-[14px]">
-                        can store multiple debit or credit cards in their profile for faster checkout. If you're not already a Member, join us today.
+                        can store multiple debit or credit cards in their profile for faster checkout. If youre not already a Member, join us today.
                     </p>
                     <div className="flex gap-4">
                         <div className="w-[100px] bg-black rounded-full h-[30px] flex justify-center items-center mt-4">
@@ -67,13 +67,13 @@ export default function Help() {
                     <p className="text-[12px] mt-2 xl:text-[16px] lg:text-[14px]">Please note, some banks may charge a small transaction fee for international orders.</p>
 
                     <p className="text-[12px] font-bold mt-4 xl:text-[16px] lg:text-[14px]">Can I pay for my order with multiple methods?</p>
-                    <p className="text-[12px] mt-2 xl:text-[16px] lg:text-[14px]">No, payment for Nike orders can't be split between multiple payment methods.</p>
+                    <p className="text-[12px] mt-2 xl:text-[16px] lg:text-[14px]">No, payment for Nike orders cant be split between multiple payment methods.</p>
 
                     <p className="text-[12px] font-bold mt-4 xl:text-[16px] lg:text-[14px]">What payment method is accepted for SNKRS orders?</p>
                     <p className="text-[12px] mt-2 xl:text-[16px] lg:text-[14px]">You can use any accepted credit card to pay for your SNKRS order.</p>
 
-                    <p className="text-[12px] font-bold mt-4 xl:text-[16px] lg:text-[14px]">Why don't I see Apple Pay as an option?</p>
-                    <p className="text-[12px] mt-2 xl:text-[16px] lg:text-[14px]">To see Apple Pay as an option in the Nike App or on Nike.com, you'll need to use a compatible Apple device running the latest OS, be signed in to your iCloud account and have a supported card in your Wallet. Additionally, you'll need to use Safari to use Apple Pay on Nike.com.</p>
+                    <p className="text-[12px] font-bold mt-4 xl:text-[16px] lg:text-[14px]">Why dont I see Apple Pay as an option?</p>
+                    <p className="text-[12px] mt-2 xl:text-[16px] lg:text-[14px]">To see Apple Pay as an option in the Nike App or on Nike.com, youll need to use a compatible Apple device running the latest OS, be signed in to your iCloud account and have a supported card in your Wallet. Additionally, youll need to use Safari to use Apple Pay on Nike.com.</p>
 
                     <p className="text-[12px] mt-4 xl:text-[16px] lg:text-[14px]">Was this answer helpful?</p>
                     <div className="flex gap-2 items-center mt-1">
@@ -82,7 +82,7 @@ export default function Help() {
                     </div>
                     <p className="text-[12px] text-[#757575] mt-4 xl:text-[14px]">RELATED</p>
                     <div className="flex flex-col gap-2 mt-2">
-                        <p className="text-[12px] ml-4 font-medium underline xl:text-[14px] lg:text-[14px lg:text-[14px]]">WHAT ARE NIKE'S DELIVERY OPTIONS?</p>
+                        <p className="text-[12px] ml-4 font-medium underline xl:text-[14px] lg:text-[14px lg:text-[14px]]">WHAT ARE NIKE&apos;s DELIVERY OPTIONS?</p>
                         <p className="text-[12px] ml-4 font-medium underline xl:text-[14px] lg:text-[14px lg:text-[14px]]">HOW DO I GET FREE DELIVERY ON NIKE ORDERS?</p>
                     </div>
 
@@ -108,7 +108,7 @@ export default function Help() {
 
                     <div className="flex flex-col justify-center items-center mt-8">
                         <Image src={envelope} alt="" />
-                        <p className="font-medium text-[12px]">We'll reply within</p>
+                        <p className="font-medium text-[12px]">Well reply within</p>
                         <p className="text-[12px] text-center">five business days</p>
                     </div>
 

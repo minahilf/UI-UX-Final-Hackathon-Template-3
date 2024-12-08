@@ -1,6 +1,5 @@
 import Image from "next/image"
 import logo from "../../../Assets/logo2.png"
-import tick from "../../../Assets/tick.png"
 import box from "../../../Assets/box.png"
 import Link from "next/link"
 
@@ -33,7 +32,7 @@ export default function Join() {
                     <Image src={box} alt="" className="w-5 h-5" />
                     <p className="text-[#757575] text-[10px]">Sign up for emails to get updates from Nike on <br />products, offers and your Member benefits</p>
                 </div>
-                <p className="text-[#757575] text-[10px] text-center mt-2">By creating an account, you agree to Nike's Privacy <br /> Policy and Terms of Use.</p>
+                <p className="text-[#757575] text-[10px] text-center mt-2">By creating an account, you agree to Nike&apos;s Privacy <br /> Policy and Terms of Use.</p>
                 <div className="bg-black w-[260px] h-[40px] flex justify-center items-center rounded-sm mt-4">
                     <button className="text-[12px] text-white">JOIN US</button>
                 </div>

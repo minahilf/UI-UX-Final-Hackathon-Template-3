@@ -10,7 +10,7 @@ export default function Bag() {
     {
       image: man,
       productName: "Nike Dri-FIT ADV TechKnit Ultra",
-      detail: "Men's Short-Sleeve Running Top",
+      detail: "Men&apos;s  Short-Sleeve Running Top",
       color: "Ashen Slate/Cobalt Bliss",
       size: "L",
       quantity: 1,
@@ -19,7 +19,7 @@ export default function Bag() {
     {
       image: airmax,
       productName: "Nike Air Max 97 SE",
-      detail: "Men's Shoes",
+      detail: "Men&apos;s  Shoes",
       color: "Flat Pewter/Light Bone/Black/White",
       size: 8,
       quantity: 1,
@@ -85,7 +85,7 @@ export default function Bag() {
         <h1 className="text-[18px] font-medium mt-4 ml-4">You Might Also Like</h1>
         <Image src={c1} alt="" className="w-[300px] h-[300px] mt-4"/>
         <p className="font-medium text-[16px]">Air Jordan 1 Mid SE Craft</p>
-        <p className="text-[16px] text-[#757575]">Men's Shoes</p>
+        <p className="text-[16px] text-[#757575]">Men&apos;s  Shoes</p>
         <p className="font-medium text-[16px]">MRP : ₹ 12 295.00</p>
         </div>
       </div>

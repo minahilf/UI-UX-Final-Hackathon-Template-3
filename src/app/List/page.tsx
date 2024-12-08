@@ -27,11 +27,11 @@ export default function List(){
                 </ul>
 
                 <ul className="text-[#757575] text-[14px] font-medium justify-center flex flex-col gap-2">
-                    <li className="text-[#111111]">Kid's</li>
+                    <li className="text-[#111111]">Kid&apos;s </li>
                     <li>Infant & Toddler Shoes</li>
-                    <li>Kid's Shoes</li>
-                    <li>Kid's Jordan Shoes</li>
-                    <li>Kid's Basketball Shoes</li>
+                    <li>Kid&apos;s  Shoes</li>
+                    <li>Kid&apos;s  Jordan Shoes</li>
+                    <li>Kid&apos;s  Basketball Shoes</li>
                 </ul>
             </div>
 

@@ -18,7 +18,7 @@ export default function SignIn(){
                     </div>
                     <p className="text-[#757575] text-[12px] w-[40%]">Forgotten your password?</p>
                 </div>
-                <p className="text-[12px] text-[#757575] text-center">By logging in, you agree to Nike's Privacy Policy <br /> and Terms of Use.</p>
+                <p className="text-[12px] text-[#757575] text-center">By logging in, you agree to Nike&apos;s np Privacy Policy <br /> and Terms of Use.</p>
                 <div className="bg-black w-[260px] h-[40px] flex justify-center items-center rounded-sm">
                     <button className="text-[12px] text-white">SIGN IN</button>
                 </div>

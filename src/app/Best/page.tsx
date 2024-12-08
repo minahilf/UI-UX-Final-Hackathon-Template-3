@@ -11,37 +11,37 @@ export default function Best() {
       image: shoe1,
       name: "Nike Air Max Pulse",
       price: "₹ 13,995",
-      category: "Women's Shoes",
+      category: "Womens Shoes",
     },
     {
       image: shoe2,
       name: "Nike Air Max Pulse",
       price: "₹ 13,995",
-      category: "Men's Shoes",
+      category: "Mens Shoes",
     },
     {
       image: shoe3,
       name: "Nike Air Max 97 SE",
       price: "₹ 16,995",
-      category: "Men's Shoes",
+      category: "Mens Shoes",
     },
     {
       image: shoe1,
       name: "Nike Air Max Pulse",
       price: "₹ 13,995",
-      category: "Women's Shoes",
+      category: "Womens Shoes",
     },
     {
       image: shoe2,
       name: "Nike Air Max Pulse",
       price: "₹ 13,995",
-      category: "Men's Shoes",
+      category: "Mens Shoes",
     },
     {
       image: shoe3,
       name: "Nike Air Max 97 SE",
       price: "₹ 16,995",
-      category: "Men's Shoes",
+      category: "Mens Shoes",
     },
   ];
 

@@ -12,13 +12,13 @@ export default function Gear() {
         image: man,
         name: "Nike Dri-FIT ADV TechKnit Ultra",
         price: "₹ 3985",
-        category: "Men's Short-Sleeve Running Top",
+        category: "Mens Short-Sleeve Running Top",
       },
       {
         image: shorts,
         name: "Nike Dri-FIT Challenger",
         price: "₹ 3495",
-        category: "Men's 18cm (approx.) 2-in-1 Versatile Shorts",
+        category: "Mens 18cm (approx.) 2-in-1 Versatile Shorts",
       },
     ];
   
@@ -27,13 +27,13 @@ export default function Gear() {
         image: woman,
         name: "Nike Dri-FIT ADV Run Division",
         price: "₹ 3495",
-        category: "Women's Long Sleeve Running Top",
+        category: "Womens Long Sleeve Running Top",
       },
       {
         image: tights,
         name: "Nike Fast",
         price: "₹ 3795",
-        category: "Women's Mid-Rise 7/8 Running Leggings with Pockets",
+        category: "Womens Mid-Rise 7/8 Running Leggings with Pockets",
       },
     ];
   
@@ -48,7 +48,7 @@ export default function Gear() {
           {/* Men's Section */}
           <div className="flex flex-col sm:w-1/2 lg:w-1/2 sm:mr-4">
             <div className="flex gap-2 items-center justify-start sm:justify-center sm:mt-0 ml-[35%] mt-4 xl:justify-start xl:ml-2">
-              <p className="text-[12px] font-medium">Shop Men's</p>
+              <p className="text-[12px] font-medium">Shop Men&apos;s </p>
               <div className="bg-[#E5E5E5] rounded-full h-7 w-7 flex items-center justify-center">
                 <Image src={left} alt="arrow" className="w-3 h-3" />
               </div>
@@ -84,7 +84,7 @@ export default function Gear() {
           {/* Women's Section */}
           <div className="flex flex-col sm:w-1/2 lg:w-1/2 sm:ml-4">
             <div className="flex gap-2 items-center justify-start sm:justify-center sm:mt-0 ml-[35%] mt-4 xl:justify-start xl:ml-2 ">
-              <p className="text-[12px] font-medium">Shop Women's</p>
+              <p className="text-[12px] font-medium">Shop Women&apos;s </p>
               <div className="bg-[#E5E5E5] rounded-full h-7 w-7 flex items-center justify-center">
                 <Image src={left} alt="arrow" className="w-3 h-3" />
               </div>
