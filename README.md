@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Final Hackathon Project: Responsive Figma Template 3
 
-## Getting Started
+**Participant:** Minahil Fatima  
+**Roll No:** 426133  
+**Hackathon Completion Time:** Started at 7:45 AM, Completed at 10:07 PM  
 
-First, run the development server:
+---
 
+## Project Purpose
+The purpose of this project was to create a responsive and visually appealing web application by converting a Figma design template into a responsive web project This was achieved using Next.js, Tailwind CSS 3, and adherence to modern UI/UX principles. 
+
+This project demonstrates my ability to:
+1. Translate Figma designs into functional components.
+2. Utilize modern web development tools and frameworks.
+3. Implement responsive design for an optimal user experience.
+
+---
+
+## Key Components Implemented
+1. **Main Page:** A welcoming and user-friendly landing page showcasing the essence of the website.
+2. **New & Featured Page:** Highlights the latest and most prominent items in an engaging layout.
+3. **Find a Store:** A feature to assist users in locating nearby stores with a visually intuitive interface.
+4. **Help Page:** Provides users with detailed support and FAQs to resolve their queries.
+5. **Join Us Page:** Encourages user registration with an attractive and seamless form.
+6. **Sign In Page:** Allows users to securely log in to their accounts.
+7. **Bag Page:** A cart-like feature for users to review selected items before checkout.
+
+---
+
+## Technology Stack
+- **Framework:** Next.js
+- **Styling:** Tailwind CSS 3
+- **Package Manager:** npm
+
+---
+
+## Steps to Run the Project Locally
+
+### Run Locally
+To start the project:
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
+### Installation
+1. Install the project dependencies:
+   ```bash
+   npm install
+   ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Run the Development Server
+1. Start the project:
+   ```bash
+   npm run dev
+   ```
+2. Open your browser and navigate to `http://localhost:3000` to view the application.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project Highlights
+- Pixel-perfect responsive design, ensuring usability and accuracy in layout replication.
+- Accurate replication of the provided Figma template.
+- Modern and clean UI design with Tailwind CSS.
+- Efficient page routing and navigation using Next.js.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+[Submit Link](https://docs.google.com/forms/d/e/1FAIpQLSd77V_p3TTDXxBvOE7tswNVG1OOBx3BNsbmBcgNprtDLzvcwg/viewform?usp=send_form)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project represents my dedication, problem-solving skills, and understanding of modern web development tools and techniques. I hope you find this submission satisfactory!
