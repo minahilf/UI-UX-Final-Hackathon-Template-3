@@ -1,7 +1,7 @@
 import Image from "next/image";
 import right from "../../../Assets/right.png";
 import left from "../../../Assets/left.png";
-import { productData2 } from "../BestAirMax/page";
+import  productData2  from "../BestAirMax/page";
 import Link from "next/link";
 
 export default function Best() {

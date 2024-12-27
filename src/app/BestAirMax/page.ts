@@ -2,7 +2,7 @@ import shoe1 from "../../../Assets/shoe1.png"
 import shoe2 from "../../../Assets/shoe2.png";
 import shoe3 from "../../../Assets/shoe3.png";
 
-export const productData2 = [
+ const productData2 = [
     {
       id:1,
       image: shoe1,
@@ -52,3 +52,5 @@ export const productData2 = [
       description: "The Nike Air Max 97 SE redefines comfort and style with its innovative design and high-performance features. Featuring the iconic full-length Air Max cushioning, these shoes offer superior comfort and support, making them perfect for long hours of wear. The premium leather and synthetic upper provides a sleek, durable look that stands out with bold color accents and reflective details. The unique, wave-inspired design of the Nike Air Max 97 SE adds a modern twist to the classic Air Max silhouette, giving you a fashion-forward look without compromising on comfort. Ideal for both casual outings and active days, the Nike Air Max 97 SE ensures you step out in style and confidence."
     },
   ];
+
+  export default productData2;

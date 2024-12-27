@@ -1,6 +1,6 @@
 'use client';
 
-import { productData2 } from "../../BestAirMax/page";
+import  productData2  from "../../BestAirMax/page";
 import Image from "next/image";
 import buy from "../../../../Assets/buy.png";
 import { useCart } from "@/app/Context/CartContext";
