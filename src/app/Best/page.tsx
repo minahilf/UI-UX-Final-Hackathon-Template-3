@@ -1,5 +1,5 @@
 import Image from "next/image";
-import right from "../..//Assets/right.png";
+import right from "../../../Assets/right.png";
 import left from "../../../Assets/left.png";
 import Link from "next/link";
 import shoe1 from "../../../public/shoe1.png"
