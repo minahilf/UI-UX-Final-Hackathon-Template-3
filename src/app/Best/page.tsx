@@ -1,10 +1,10 @@
 import Image from "next/image";
-import right from "../../../Assets/right.png";
+import right from "../..//Assets/right.png";
 import left from "../../../Assets/left.png";
 import Link from "next/link";
-import shoe1 from "../../../Assets/shoe1.png"
-import shoe2 from "../../../Assets/shoe2.png";
-import shoe3 from "../../../Assets/shoe3.png";
+import shoe1 from "../../../public/shoe1.png"
+import shoe2 from "../../../public/shoe2.png";
+import shoe3 from "../../../public/shoe3.png";
 
 export default function Best() {
   
