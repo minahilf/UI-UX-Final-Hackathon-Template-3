@@ -1,9 +1,9 @@
 'use client';
 
 import Image from "next/image";
-import shoe1 from "../../../Assets/shoe1.png"
-import shoe2 from "../../../Assets/shoe2.png";
-import shoe3 from "../../../Assets/shoe3.png";
+import shoe1 from "../../../../public/shoe1.png"
+import shoe2 from "../../../../public/shoe2.png";
+import shoe3 from "../../../../public/shoe3.png";
 import buy from "../../../../Assets/buy.png";
 import { useCart } from "@/app/Context/CartContext";
 import { useRouter } from "next/navigation";
