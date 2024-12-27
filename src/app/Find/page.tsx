@@ -69,7 +69,7 @@ export default function Find(){
           </ul>
   
           {/* Footer */}
-          <div className="mt-6 text-center">
+          <div className="mt-6 mb-0 text-center">
             <button className="text-[#757575] font-medium underline">
               View All Stores
             </button>

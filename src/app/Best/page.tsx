@@ -1,49 +1,11 @@
 import Image from "next/image";
 import right from "../../../Assets/right.png";
 import left from "../../../Assets/left.png";
-import shoe1 from "../../../Assets/shoe1.png"
-import shoe2 from "../../../Assets/shoe2.png";
-import shoe3 from "../../../Assets/shoe3.png";
+import { productData2 } from "../BestAirMax/page";
+import Link from "next/link";
 
 export default function Best() {
-  const productData = [
-    {
-      image: shoe1,
-      name: "Nike Air Max Pulse",
-      price: "₹ 13,995",
-      category: "Womens Shoes",
-    },
-    {
-      image: shoe2,
-      name: "Nike Air Max Pulse",
-      price: "₹ 13,995",
-      category: "Mens Shoes",
-    },
-    {
-      image: shoe3,
-      name: "Nike Air Max 97 SE",
-      price: "₹ 16,995",
-      category: "Mens Shoes",
-    },
-    {
-      image: shoe1,
-      name: "Nike Air Max Pulse",
-      price: "₹ 13,995",
-      category: "Womens Shoes",
-    },
-    {
-      image: shoe2,
-      name: "Nike Air Max Pulse",
-      price: "₹ 13,995",
-      category: "Mens Shoes",
-    },
-    {
-      image: shoe3,
-      name: "Nike Air Max 97 SE",
-      price: "₹ 16,995",
-      category: "Mens Shoes",
-    },
-  ];
+  
 
   return (
     <div className="px-4">
@@ -66,11 +28,12 @@ export default function Best() {
 
       {/* Product */}
       <div className="flex overflow-x-auto scrollbar-hide mt-4 gap-4">
-        {productData.map((product, index) => (
+        {productData2.map((product) => (
           <div
-            key={index}
+            key={product.id}
             className="flex-shrink-0 w-[250px] sm:w-[300px] "
           >
+            <Link href={`/Best/${product.id}`}>
             <Image
               src={product.image}
               alt={product.name}
@@ -83,6 +46,7 @@ export default function Best() {
               <p className="text-[10px]">{product.price}</p>
             </div>
             <p className="text-[12px] text-[#757575]">{product.category}</p>
+            </Link>
           </div>
         ))}
       </div>
