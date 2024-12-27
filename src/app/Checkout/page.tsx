@@ -148,9 +148,7 @@ export default function Checkout() {
 
             <ContactInfo />
 
-            <button type="submit" className="w-full bg-black text-white rounded-full py-3 mt-6 cursor-pointer">
-              Continue to Payment
-            </button>
+           
           </div>
 
           <div className="lg:w-1/3 xl:w-2/5 border-t lg:border-t-0 lg:border-l pl-0 lg:pl-4">
