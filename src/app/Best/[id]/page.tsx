@@ -1,5 +1,4 @@
 'use client';
-
 import Image from "next/image";
 import shoe1 from "../../../../public/shoe1.png"
 import shoe2 from "../../../../public/shoe2.png";
