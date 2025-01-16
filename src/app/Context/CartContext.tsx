@@ -9,6 +9,7 @@ interface CartItem {
   detail: string;
   quantity: number;
   price: string;
+  size?: number
 }
 
 interface CartContextType {

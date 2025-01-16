@@ -45,7 +45,7 @@ export default function Checkout() {
                 How would you like to get your order?
               </h1>
               <p className="font-light text-[14px]">
-                Customs regulation for India require a copy of the recipient's
+                Customs regulation for India require a copy of the recipients
                 KYC. The address on the KYC needs to match the shipping address.
                 Our courier will contact you via SMS/email to obtain a copy of
                 your KYC. The KYC will be stored securely and used solely for the

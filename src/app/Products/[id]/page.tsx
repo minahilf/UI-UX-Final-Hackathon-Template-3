@@ -1,4 +1,5 @@
 'use client';
+import { useState } from 'react';
 import { useCart } from "@/app/Context/CartContext";
 import { productData } from "@/app/productdata/data";
 import Image from "next/image";
@@ -7,21 +8,34 @@ import { useRouter } from 'next/navigation';
 import { use } from 'react';
 
 export default function ProductDetail({ params }: { params: Promise<{ id: string }> }) {
+  const [selectedSize, setSelectedSize] = useState<number | null>(null);
   const router = useRouter();
   const { addItem } = useCart();
   const resolvedParams = use(params);
+
   const product_id = parseInt(resolvedParams.id);
   const product = productData.find((item) => item.id === product_id);
 
   if (!product) {
-    return(
-    <div className="flex flex-col justify-center items-center h-screen">
-    <p className="text-[40px] text-center font-extrabold">Product not found!</p>;
-    </div>
-    )
+    return (
+      <div className="flex flex-col justify-center items-center h-screen">
+        <p className="text-[40px] text-center font-extrabold">Product not found!</p>
+      </div>
+    );
   }
 
   const handleAddToCart = () => {
+    if (!selectedSize) {
+      alert("Please select a size before adding to cart");
+      return;
+    }
+
+    const sizeInfo = product.sizes?.find(s => s.size === selectedSize);
+    if (!sizeInfo || sizeInfo.stock === 0) {
+      alert("Selected size is out of stock");
+      return;
+    }
+
     addItem({
       id: product.id,
       image: product.image,
@@ -29,6 +43,7 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
       detail: product.category,
       quantity: 1,
       price: product.price,
+      size: selectedSize,
     });
     router.push('/Bag');
   };
@@ -52,9 +67,38 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
           {product.price}
         </p>
 
-        <button 
+        {/* Size Selection */}
+        <div className="flex flex-col space-y-2">
+          <p className="text-lg font-semibold">Select Size</p>
+          <div className="flex flex-wrap gap-2">
+            {product.sizes?.map(({ size, stock }) => (
+              <button
+                key={size}
+                onClick={() => setSelectedSize(size)}
+                className={`px-4 py-2 border rounded-md ${
+                  selectedSize === size 
+                    ? 'border-black bg-black text-white' 
+                    : 'border-gray-300 hover:border-gray-500'
+                } ${
+                  stock === 0 ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'
+                }`}
+                disabled={stock === 0}
+              >
+                {size}
+                <span className="text-xs block">
+                  {stock === 0 ? 'Out of Stock' : `${stock} left`}
+                </span>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <button
           onClick={handleAddToCart}
-          className="bg-black text-white flex items-center justify-center space-x-2 px-6 py-3 rounded-full hover:bg-gray-800 transition duration-300"
+          className={`bg-black text-white flex items-center justify-center space-x-2 px-6 py-3 rounded-full transition duration-300 ${
+            !selectedSize ? 'opacity-50 cursor-not-allowed' : 'hover:bg-gray-800'
+          }`}
+          disabled={!selectedSize}
         >
           <Image src={buy} alt="Buy now" width={24} height={24} />
           <span>Add To Cart</span>
