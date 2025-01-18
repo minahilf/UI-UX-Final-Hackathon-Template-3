@@ -3,20 +3,17 @@ import { createContext, useContext, useEffect, useState } from 'react';
 import { StaticImageData } from 'next/image';
 
 interface CartItem {
-  id: number;
   image: StaticImageData | string;
-  productName: string;
-  detail: string;
+  productName: string; // Unique identifier
   quantity: number;
-  price: string;
-  size?: number
+  price: number | string;
 }
 
 interface CartContextType {
   items: CartItem[];
   addItem: (item: CartItem) => void;
-  removeItem: (id: number) => void;
-  updateQuantity: (id: number, type: 'increase' | 'decrease') => void;
+  removeItem: (productName: string) => void;
+  updateQuantity: (productName: string, type: 'increase' | 'decrease') => void;
   clearCart: () => void;
 }
 
@@ -32,15 +29,12 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   const [items, setItems] = useState<CartItem[]>([]);
 
   useEffect(() => {
+    if (typeof window === 'undefined') return;
     try {
       const savedCart = localStorage.getItem('cart');
       if (savedCart) {
-        const parsedCart = JSON.parse(savedCart);
-        const hydratedCart = parsedCart.map((item: CartItem) => ({
-          ...item,
-          image: item.image
-        }));
-        setItems(hydratedCart);
+        const parsedCart: CartItem[] = JSON.parse(savedCart);
+        setItems(parsedCart);
       }
     } catch (error) {
       console.error('Error loading cart:', error);
@@ -48,12 +42,9 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   useEffect(() => {
+    if (typeof window === 'undefined') return;
     try {
-      const cartToSave = items.map(item => ({
-        ...item,
-        image: typeof item.image === 'string' ? item.image : item.image.src
-      }));
-      localStorage.setItem('cart', JSON.stringify(cartToSave));
+      localStorage.setItem('cart', JSON.stringify(items));
     } catch (error) {
       console.error('Error saving cart:', error);
     }
@@ -61,10 +52,10 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
 
   const addItem = (newItem: CartItem) => {
     setItems(currentItems => {
-      const existingItem = currentItems.find(item => item.id === newItem.id);
+      const existingItem = currentItems.find(item => item.productName === newItem.productName);
       if (existingItem) {
         return currentItems.map(item =>
-          item.id === newItem.id
+          item.productName === newItem.productName
             ? { ...item, quantity: item.quantity + 1 }
             : item
         );
@@ -73,23 +64,23 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     });
   };
 
-  const updateQuantity = (id: number, type: 'increase' | 'decrease') => {
-    setItems(currentItems => 
-      currentItems.map(item => {
-        if (item.id === id) {
-          const newQuantity = type === 'increase' ? item.quantity + 1 : item.quantity - 1;
-          if (newQuantity === 0) {
-            return null;
+  const updateQuantity = (productName: string, type: 'increase' | 'decrease') => {
+    setItems(currentItems =>
+      currentItems
+        .map(item => {
+          if (item.productName === productName) {
+            const newQuantity = type === 'increase' ? item.quantity + 1 : item.quantity - 1;
+            if (newQuantity <= 0) return null;
+            return { ...item, quantity: newQuantity };
           }
-          return { ...item, quantity: newQuantity };
-        }
-        return item;
-      }).filter(Boolean) as CartItem[]
+          return item;
+        })
+        .filter(Boolean) as CartItem[]
     );
   };
 
-  const removeItem = (id: number) => {
-    setItems(currentItems => currentItems.filter(item => item.id !== id));
+  const removeItem = (productName: string) => {
+    setItems(currentItems => currentItems.filter(item => item.productName !== productName));
   };
 
   const clearCart = () => {

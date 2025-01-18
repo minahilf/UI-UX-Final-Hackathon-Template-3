@@ -5,13 +5,15 @@ import deliver from "../../../Assets/deliver.png";
 import { useCart } from "../Context/CartContext";
 import ContactInfo from "../Components/Contact";
 import order from "../../../Assets/order.png"
+import { urlFor } from '@/sanity/lib/image';
 
 export default function Checkout() {
   const [isConfirmed, setIsConfirmed] = useState(false);
   const { items, clearCart } = useCart();
   
+
   const subtotal = items.reduce((total, item) => {
-    const price = parseFloat(item.price.replace(/[^0-9.]/g, ''));
+    const price = parseFloat(String(item.price).replace(/[^0-9.]/g, ''));
     return total + (price * item.quantity);
   }, 0);
 
@@ -72,12 +74,14 @@ export default function Checkout() {
                 type="text"
                 className="w-full h-[50px] border border-gray-400 rounded-md p-2 text-[14px]"
                 placeholder="First Name"
+                pattern="[A-Za-z\s]+" 
                 required
               />
               <input
                 type="text"
                 className="w-full h-[50px] border border-gray-400 rounded-md p-2 text-[14px]"
                 placeholder="Last Name"
+                pattern="[A-Za-z\s]+" 
                 required
               />
               <div className="relative">
@@ -159,7 +163,7 @@ export default function Checkout() {
               <div>
                 <div className="flex justify-between items-center">
                   <p className="text-[#8D8D8D] font-normal text-[14px]">Subtotal</p>
-                  <p className="text-[#8D8D8D] font-normal text-[14px]">₹ {subtotal.toFixed(2)}</p>
+                  <p className="text-[#8D8D8D] font-normal text-[14px]">PKR {subtotal.toFixed(2)}</p>
                 </div>
                 <div className="flex justify-between items-center mt-2">
                   <p className="text-[#8D8D8D] font-normal text-[14px]">Delivery/Shipping</p>
@@ -167,7 +171,7 @@ export default function Checkout() {
                 </div>
                 <div className="flex justify-between items-center border-t border-b border-gray-400 mt-4 py-2">
                   <p className="text-black font-medium text-[14px]">Total</p>
-                  <p className="text-black font-medium text-[14px]">₹ {subtotal.toFixed(2)}</p>
+                  <p className="text-black font-medium text-[14px]">PKR {subtotal.toFixed(2)}</p>
                 </div>
                 <p className="text-[8px] font-normal text-[#757575] mt-2">
                   (The total reflects the price of your order, including all duties and taxes)
@@ -182,7 +186,7 @@ export default function Checkout() {
               {items.map((item, index) => (
                 <div key={index} className="flex gap-4 mt-4">
                   <Image 
-                    src={item.image} 
+                    src={urlFor(item.image).url()}  
                     alt={item.productName} 
                     width={100} 
                     height={100} 
@@ -191,7 +195,7 @@ export default function Checkout() {
                   <div>
                     <p className="text-[12px] font-medium">{item.productName}</p>
                     <p className="text-[12px] mt-1">Qty {item.quantity}</p>
-                    <p className="text-[12px] font-bold mt-1">{item.price}</p>
+                    <p className="text-[12px] font-bold mt-1">PKR {item.price}</p>
                   </div>
                 </div>
               ))}
