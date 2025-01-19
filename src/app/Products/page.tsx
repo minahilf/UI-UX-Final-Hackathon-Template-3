@@ -1,5 +1,4 @@
 'use client'
-
 import Image from "next/image";
 import Header2 from "../Components/Header2";
 import SideBar from "../Components/Side";
@@ -20,12 +19,11 @@ interface NProducts {
 }
 
 export default function Products() {
-  // State for products and filters
+ 
   const [products, setProducts] = useState<NProducts[]>([]);
   const [showFilters, setShowFilters] = useState(true);
   const [originalProducts, setOriginalProducts] = useState<NProducts[]>([]);
 
-  // Fetch products on component mount
   useEffect(() => {
     const fetchProducts = async () => {
       const NikeProducts = await client.fetch(`*[_type == "product"]{
@@ -54,6 +52,11 @@ export default function Products() {
       sortedProducts.sort((a, b) => a.price - b.price);
     }
     setProducts(sortedProducts);
+  };
+
+  // Reset to original products (if needed)
+  const handleResetFilters = () => {
+    setProducts(originalProducts);
   };
 
   const Related = [
