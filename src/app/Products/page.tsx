@@ -19,7 +19,6 @@ interface NProducts {
 }
 
 export default function Products() {
- 
   const [products, setProducts] = useState<NProducts[]>([]);
   const [showFilters, setShowFilters] = useState(true);
   const [originalProducts, setOriginalProducts] = useState<NProducts[]>([]);
@@ -37,13 +36,13 @@ export default function Products() {
         description
       }`);
       setProducts(NikeProducts);
-      setOriginalProducts(NikeProducts); // Keep original order for reset
+      setOriginalProducts(NikeProducts); 
     };
 
     fetchProducts();
   }, []);
 
-  // Handle sorting
+
   const handleSort = (sortType: string) => {
     const sortedProducts = [...products];
     if (sortType === 'price-high') {
@@ -54,7 +53,6 @@ export default function Products() {
     setProducts(sortedProducts);
   };
 
-  // Reset to original products (if needed)
   const handleResetFilters = () => {
     setProducts(originalProducts);
   };
@@ -82,6 +80,14 @@ export default function Products() {
       <div className="flex">
         {showFilters && <SideBar />}
         <div className="px-4 py-8">
+          <div className="flex justify-between mb-4">
+            <button 
+              onClick={handleResetFilters} 
+              className="px-4 py-2 bg-black text-white rounded-md"
+            >
+              Reset Filters
+            </button>
+          </div>
           <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {products.map((product: NProducts) => (
               <div key={product.productName}>
