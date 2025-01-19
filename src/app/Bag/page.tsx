@@ -95,7 +95,7 @@ export default function Bag() {
         </h1>
         <div className="flex justify-evenly gap-10 mt-2">
           <p className="text-[14px]">Subtotal</p>
-          <p className="text-[14px]">₹ {subtotal.toFixed(2)}</p>
+          <p className="text-[14px]">PKR {subtotal.toFixed(2)}</p>
         </div>
         <div className="flex justify-evenly mr-6 mt-2">
           <p className="text-[14px]">
@@ -106,7 +106,7 @@ export default function Bag() {
         <div className="p-2 border-b border-gray-200 w-auto "></div>
         <div className="flex justify-evenly gap-5 mt-2">
           <p className="text-[14px]">Total</p>
-          <p className="text-[14px] font-medium">₹ {subtotal.toFixed(2)}</p>
+          <p className="text-[14px] font-medium">PKR {subtotal.toFixed(2)}</p>
         </div>
         <div className="bg-black w-[160px] h-[40px] rounded-full flex justify-center items-center p-4 mt-6 ml-[28%] sm:ml-[38%] lg:ml-[28%] xl:ml-[32%]">
           <Link href={`/Checkout`}><button className="text-white text-[14px] font-medium">

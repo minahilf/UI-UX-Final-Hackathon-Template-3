@@ -4,9 +4,10 @@ import { StaticImageData } from 'next/image';
 
 interface CartItem {
   image: StaticImageData | string;
-  productName: string; // Unique identifier
+  productName: string; 
   quantity: number;
   price: number | string;
+  inventory: number; 
 }
 
 interface CartContextType {
@@ -54,9 +55,10 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     setItems(currentItems => {
       const existingItem = currentItems.find(item => item.productName === newItem.productName);
       if (existingItem) {
+        const updatedQuantity = Math.min(existingItem.quantity + 1, newItem.inventory); // Prevent exceeding inventory
         return currentItems.map(item =>
           item.productName === newItem.productName
-            ? { ...item, quantity: item.quantity + 1 }
+            ? { ...item, quantity: updatedQuantity }
             : item
         );
       }
@@ -69,13 +71,22 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
       currentItems
         .map(item => {
           if (item.productName === productName) {
-            const newQuantity = type === 'increase' ? item.quantity + 1 : item.quantity - 1;
-            if (newQuantity <= 0) return null;
+            let newQuantity = item.quantity;
+            if (type === 'increase') {
+             
+              if (item.quantity >= item.inventory) {
+                alert('Out of Stock!');
+                return item;
+              }
+              newQuantity = item.quantity + 1;
+            } else if (type === 'decrease') {
+              newQuantity = Math.max(item.quantity - 1, 1); 
+            }
             return { ...item, quantity: newQuantity };
           }
           return item;
         })
-        .filter(Boolean) as CartItem[]
+        .filter(Boolean) as CartItem[] 
     );
   };
 

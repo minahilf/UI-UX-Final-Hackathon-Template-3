@@ -1,34 +1,61 @@
+'use client'
+
 import Image from "next/image";
 import Header2 from "../Components/Header2";
 import SideBar from "../Components/Side";
-// import { productData } from "../productdata/data";
+import { useState, useEffect } from "react";
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
 import Link from "next/link";
 
-export default async function Products() {
+interface NProducts {
+  id: number;
+  productName: string;
+  category: string;
+  price: number;
+  inventory: number;
+  status: string;
+  image: string;
+  description: string;
+}
 
-  interface NProducts {
-    id: number,
-    productName : string,
-    category: string,
-    price : number,
-    inventory:number,
-    status: string,
-    image: string,
-    description: string
-  }
+export default function Products() {
+  // State for products and filters
+  const [products, setProducts] = useState<NProducts[]>([]);
+  const [showFilters, setShowFilters] = useState(true);
+  const [originalProducts, setOriginalProducts] = useState<NProducts[]>([]);
 
-  const NikeProducts = await client.fetch(`*[_type == "product"]{
-    id,
-productName,
-category,
-price,
-inventory,
-  status,
-  image,
-  description
-}`)
+  // Fetch products on component mount
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const NikeProducts = await client.fetch(`*[_type == "product"]{
+        id,
+        productName,
+        category,
+        price,
+        inventory,
+        status,
+        image,
+        description
+      }`);
+      setProducts(NikeProducts);
+      setOriginalProducts(NikeProducts); // Keep original order for reset
+    };
+
+    fetchProducts();
+  }, []);
+
+  // Handle sorting
+  const handleSort = (sortType: string) => {
+    const sortedProducts = [...products];
+    if (sortType === 'price-high') {
+      sortedProducts.sort((a, b) => b.price - a.price);
+    } else if (sortType === 'price-low') {
+      sortedProducts.sort((a, b) => a.price - b.price);
+    }
+    setProducts(sortedProducts);
+  };
+
   const Related = [
     { category: "Best Selling Products" },
     { category: "Best Shoes" },
@@ -44,12 +71,16 @@ inventory,
 
   return (
     <div>
-      <Header2 />
+      <Header2 
+        onSortChange={handleSort}
+        onFilterToggle={() => setShowFilters(!showFilters)}
+        showFilters={showFilters}
+      />
       <div className="flex">
-        <SideBar />
-        <div className="px-4 py-8 ">
+        {showFilters && <SideBar />}
+        <div className="px-4 py-8">
           <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {NikeProducts.map((product:NProducts) => (
+            {products.map((product: NProducts) => (
               <div key={product.productName}>
                 <Link href={`/Products/${product.productName}`}>
                   <Image
@@ -59,15 +90,20 @@ inventory,
                     width={200}
                     height={200}
                   />
-                  <h1 className="text-[12px] text-[#9E3500] font-medium mt-2">{product.status}</h1>
+                  <h1 className="text-[12px] text-[#9E3500] font-medium mt-2">
+                    {product.status}
+                  </h1>
                   <h3 className="text-[12px] font-bold">{product.productName}</h3>
                   <p className="text-[#757575] text-[12px]">{product.category}</p>
-                  <p className="text-black font-medium text-[10px] mt-1">PKR {product.price}</p>
+                  <p className="text-black font-medium text-[10px] mt-1">
+                    PKR {product.price}
+                  </p>
                 </Link>
               </div>
             ))}
           </div>
-          <div className="border-t  w-auto mt-10"></div>
+          
+          <div className="border-t w-auto mt-10"></div>
           <p className="text-[15px] font-medium mt-8">Related Categories</p>
           <div className="mt-4 flex flex-wrap gap-2 justify-center xl:justify-start lg:justify-start sm:justify-start">
             {Related.map((product, index) => (
@@ -75,7 +111,9 @@ inventory,
                 key={index}
                 className="bg-transparent border w-[120px] h-[30px] text-center rounded-full flex items-center justify-center"
               >
-                <button className="text-[10px] font-medium">{product.category}</button>
+                <button className="text-[10px] font-medium">
+                  {product.category}
+                </button>
               </div>
             ))}
           </div>

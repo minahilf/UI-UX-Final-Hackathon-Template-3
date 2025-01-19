@@ -85,7 +85,7 @@ export default function Best() {
             key={product.id}
             className="flex-shrink-0 w-[250px] sm:w-[300px] "
           >
-            <Link href={`/Best/${product.id}`}>
+            <Link href={`/Products`}>
             <Image
               src={product.image}
               alt={product.name}

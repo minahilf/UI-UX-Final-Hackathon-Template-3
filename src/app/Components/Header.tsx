@@ -90,7 +90,7 @@ export default function Header() {
               </div>
               {/* Icons */}
               <div className="flex items-center space-x-2 ml-2">
-                <Image src={like} alt="Like" className="w-7 h-7 cursor-pointer" />
+              <Link href="/Wishlist" >    <Image src={like} alt="Like" className="w-7 h-7 cursor-pointer" /></Link>
               <Link href="/Bag" > <Image src={bag} alt="Cart" className="w-7 h-7 cursor-pointer" /></Link>
               </div>
             </div>
