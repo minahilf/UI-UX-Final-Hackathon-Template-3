@@ -136,6 +136,20 @@ import heart from "../../../../Assets/like.png";
 import FAQ from "@/app/Components/FAQ";
 import Size from "@/app/Components/Size";
 
+interface CartItem {
+  image: string;
+  productName: string;
+  quantity: number;
+  price: number;
+  inventory: number;
+}
+
+interface WishlistItem {
+  productName: string;
+  price: number;
+  image: string;
+}
+
 interface Nikeitems {
   productName: string;
   price: number;
@@ -143,6 +157,10 @@ interface Nikeitems {
   inventory: number;
   image: string;
   description: string;
+}
+
+interface SizeProps {
+  onSizeSelect: (size: string) => void;
 }
 
 export default function ProductDetail({

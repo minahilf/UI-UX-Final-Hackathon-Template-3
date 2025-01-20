@@ -1,7 +1,14 @@
 import { client } from '@/sanity/lib/client';
 import ProductDetail from './productDetails';
 
-export default async function ProductDetailPage({ params }: { params: { productName: string } }) {
+interface PageProps {
+  params: {
+    productName: string;
+  };
+  searchParams?: Record<string, string | string[] | undefined>;
+}
+
+export default async function ProductDetailPage({ params }: PageProps) {
   const productDetails = await client.fetch(`*[_type == "product"]{
     productName,
     price,
@@ -10,8 +17,8 @@ export default async function ProductDetailPage({ params }: { params: { productN
     description
   }`);
 
-  console.log('Fetched Product Details:', productDetails); // Log the fetched product data
-  console.log('Product Name from URL:', params.productName);  // Log the product name from URL params
+  console.log('Fetched Product Details:', productDetails);
+  console.log('Product Name from URL:', params.productName);  
 
   return <ProductDetail productDetails={productDetails} productName={params.productName} />;
 }
