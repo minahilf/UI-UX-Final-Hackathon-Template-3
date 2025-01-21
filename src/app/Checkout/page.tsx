@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Image from "next/image";
 import deliver from "../../../Assets/deliver.png";
 import { useCart } from "../Context/CartContext";
-import ContactInfo from "../Components/Contact";
+import ContactInfo from '../Components/Contact';
 import order from "../../../Assets/order.png"
 import { urlFor } from '@/sanity/lib/image';
 

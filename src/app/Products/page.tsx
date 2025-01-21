@@ -23,23 +23,29 @@ export default function Products() {
   const [products, setProducts] = useState<NProducts[]>([]);
   const [showFilters, setShowFilters] = useState(true);
   const [originalProducts, setOriginalProducts] = useState<NProducts[]>([]);
+  const [error, setError] = useState<string | null>(null);
   const { searchTerm } = useSearch();
-  
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const NikeProducts = await client.fetch(`*[_type == "product"]{
-        id,
-        productName,
-        category,
-        price,
-        inventory,
-        status,
-        image,
-        description
-      }`);
-      setProducts(NikeProducts);
-      setOriginalProducts(NikeProducts);
+      try {
+        const NikeProducts = await client.fetch(`*[_type == "product"]{
+          id,
+          productName,
+          category,
+          price,
+          inventory,
+          status,
+          image,
+          description
+        }`);
+        setProducts(NikeProducts);
+        setOriginalProducts(NikeProducts);
+        setError(null); 
+      } catch (error) {
+        console.error("Failed to fetch products:", error);
+        setError("Error: Unable to load products. Please try again later.");
+      }
     };
 
     fetchProducts();
@@ -90,6 +96,7 @@ export default function Products() {
   const toggleFilters = () => {
     setShowFilters(!showFilters);
   };
+
   return (
     <div>
       <Header2 
@@ -108,13 +115,19 @@ export default function Products() {
               Reset Filters
             </button>
           </div>
+
+          {error && (
+            <div className="text-center py-4 text-red-500">
+              <p>{error}</p>
+            </div>
+          )}
+
           <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {products.length === 0 && searchTerm && (
               <div className="col-span-full text-center py-10">
                 <p className="text-gray-500">No products found matching "{searchTerm}"</p>
               </div>
             )}
-            
             {products.map((product: NProducts) => (
               <div key={product.productName}>
                 <Link href={`/Products/${product.productName}`}>
